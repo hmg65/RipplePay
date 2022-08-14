@@ -12,7 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import '../App.css' 
-import NavLogo from "../images/microsoftLogo.svg";
+import NavLogo from "../images/xrp_logo.svg";
 
 //Validate mobile number
 const validatePhoneNumber = (number) => {
@@ -96,7 +96,7 @@ const dateUpdated = new Date().toISOString();
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <Link className="navbar-brand d-flex align-items-center ms-1" to="/signup">
           <img src={NavLogo} className="rounded nav_logo"/>
-          MS Bank</Link>
+          RipplePay</Link>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -121,7 +121,7 @@ const dateUpdated = new Date().toISOString();
                         <div className="card-body m-auto text-center d-flex flex-column float-left m-5">
                 
                             <div>
-                            <h3 className="float-left fw-bold fs-3">Sign up to MS Bank</h3>
+                            <h3 className="float-left fw-bold fs-3">Sign up to RipplePay</h3>
                             </div>
                     
                           

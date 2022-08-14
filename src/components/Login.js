@@ -8,7 +8,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js"; 
-import NavLogo from "../images/microsoftLogo.svg";
+import NavLogo from "../images/xrp_logo.svg";
 
 
 
@@ -80,7 +80,7 @@ const Login = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <Link className="navbar-brand d-flex align-items-center ms-1" to="/">
           <img src={NavLogo} className="rounded nav_logo me-1"/>
-          MS Bank
+          RipplePay
         </Link>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,13 +102,13 @@ const Login = () => {
     
       <section className="vh-100 login_background">
         <div className="container h-100 ">
-          <div className="row justify-content-end align-items-centre h-100 bg-image">
-            <div className="col-md-auto d-flex justify-content-center align-items-center">
-              <div className="card rounded-1 shadow">
+          <div className="row justify-content-center align-items-centre h-100 bg-image">
+            <div className="d-flex justify-content-center align-items-center">
+              <div className="card rounded-1 bg-transparent text-light">
                 <div className="card-body p-5 m-4 text-center d-flex flex-column float-left">
 
                   <div>
-                    <h3 className="float-left fw-bold fs-3">Log in to MS Bank</h3>
+                    <h3 className="float-center fw-bold fs-3">Log in to RipplePay</h3>
                   </div>
                       
                   {error && <Alert variant="danger">{error}</Alert>}
