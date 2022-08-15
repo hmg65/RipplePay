@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate,useLocation } from "react-router-dom";
 import Countdown from "react-countdown";
 import NumberFormat from "react-number-format";
-import Logo from "../images/microsoftLogo.svg";
+import Logo from "../images/xrp_logo.svg";
 import PaymentSuccessful from "../images/PaymentSuccessful.gif";
 
 
@@ -50,7 +50,7 @@ const Receipt = () => {
       <div className="d-flex mt-5">
         <div className=" mx-auto">
           <img src={Logo} className="rounded mt-2 logo_image"/>
-          <span className="fs-1 align-middle">MS BANK</span>
+          <span className="fs-1 align-middle">RipplePay</span>
         </div>
       </div>
 

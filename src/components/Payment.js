@@ -215,7 +215,7 @@ const Payment = () => {
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={NavLogo} className="rounded nav_logo me-1" />
-            MS Bank
+            RipplePay
           </Link>
           <div className="text-light">
             Current Balance:

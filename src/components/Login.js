@@ -8,7 +8,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js"; 
-import NavLogo from "../images/microsoftLogo.svg";
+import NavLogo from "../images/xrp_logo.svg";
 
 
 
@@ -77,10 +77,10 @@ const Login = () => {
   return (
     <div>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <nav className="navbar navbar-expand-lg navbar-dark">
         <Link className="navbar-brand d-flex align-items-center ms-1" to="/">
           <img src={NavLogo} className="rounded nav_logo me-1"/>
-          MS Bank
+          RipplePay
         </Link>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,15 +100,15 @@ const Login = () => {
 
       {/* ----------Login Card----------  */}
     
-      <section className="vh-100 login_background">
-        <div className="container h-100 ">
-          <div className="row justify-content-end align-items-centre h-100 bg-image">
-            <div className="col-md-auto d-flex justify-content-center align-items-center">
-              <div className="card rounded-1 shadow">
-                <div className="card-body p-5 m-4 text-center d-flex flex-column float-left">
+      <section className="vh-100 login_background mb-5">
+        <div className="container h-100">
+          <div className="row justify-content-center align-items-centre h-100">
+            <div className="d-flex justify-content-center align-items-center">
+              <div className="bg-transparent text-light border border-0 mb-5">
+                <div className="card-body text-center d-flex flex-column float-left p-0">
 
                   <div>
-                    <h3 className="float-left fw-bold fs-3">Log in to MS Bank</h3>
+                    <h3 className="float-center fw-bold fs-3">Log in to RipplePay</h3>
                   </div>
                       
                   {error && <Alert variant="danger">{error}</Alert>}
@@ -127,7 +127,7 @@ const Login = () => {
                     {/* ----------Modal trigger button---------- */}
                     <div className="d-flex flex-column gap-2"> 
                       <div> 
-                        {loading ? <Spinner animation="border" /> : <button className="btn btn-dark btn-lg btn-block" type="submit"> Login </button>}   
+                        {loading ? <Spinner animation="border" /> : <button className="btn btn-light btn-md btn-block" type="submit"> Login </button>}   
                       </div>
                     </div>
 

@@ -1,22 +1,22 @@
-# ![](https://github.com/hmg65/msbank/blob/master/public/favicon.ico?raw=true) MS Bank - Gesture & Facial Recognition Enabled Banking Web App
+# ![](https://github.com/hmg65/msbank/blob/master/public/favicon.ico?raw=true) Ripple Pay
 
-## Submission for Microsoft Engage 2022 🌟
+## Submission for Ripple CBDC Innovate 🌟
 
 [![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://youtu.be/6WKk-26gVIg)
 
 ## Deployed Application Link
 
-https://msbank.vercel.app/
+https://rpay.vercel.app/
 
 ## Instructions to run it locally
 
-1. `git clone https://github.com/hmg65/msbank.git`
-2. `cd ./msbank`
+1. `git clone https://github.com/hmg65/RipplePay.git`
+2. `cd ./RipplePay`
 3. Install node dependencies
    - `npm install`
 4. Replace firebase API keys with your configurations
 5. Create a .env file
-   - Add relevant credentials (I've given in the last section of Acehacker Final Submission Page)
+   - Add relevant credentials (I've given in the last section of Final Submission Page)
 6. `npm start`
 7. The app is now running at http://localhost:3000/
 

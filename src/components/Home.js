@@ -20,7 +20,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
-import NavLogo from "../images/microsoftLogo.svg";
+import NavLogo from "../images/xrp_logo.svg";
 
 const Home = () => {
   const { logOut } = useUserAuth();
@@ -209,7 +209,7 @@ const Home = () => {
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={NavLogo} className="rounded nav_logo me-1" />
-            MS Bank
+            RipplePay
           </Link>
           <div className="text-light ms-0 current_balance_nav">
             Current Balance:

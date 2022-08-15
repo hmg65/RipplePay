@@ -1,7 +1,7 @@
 body {
-  background: #ece9e6;
-  background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
-  background: linear-gradient(to right, #ffffff, #ece9e6);
+  background: #000000;
+  /* background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
+  background: linear-gradient(to right, #ffffff, #ece9e6); */
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -16,18 +16,18 @@ body {
 /* Login */
 
 .login_background {
-  background-image: url("./images/Login.svg");
+  background-image: url("./images/login_background.svg");
   background-repeat: no-repeat;
-  background-size: 50% 50%;
+  background-size: 100% 100%;
   margin: auto;
-  background-position: left;
+  background-position: center;
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .login_background {
     background-image: none;
   }
-}
+} */
 
 /* Payment */
 
@@ -106,6 +106,10 @@ input[type="number"] {
   .signup_background {
     background-image: none;
   }
+}
+
+.btn-vra-info {
+  background-color: transparent;
 }
 
 /* Add Beneficiary */
@@ -266,9 +270,9 @@ input[type="number"] {
 }
 
 .deposit_button {
-  background-color:  #7DB800;
+  background-color: #7db800;
 }
 
 .cancel_button {
-  background-color: #F34616;
+  background-color: #f34616;
 }
