@@ -18,16 +18,16 @@ body {
 .login_background {
   background-image: url("./images/login_background.svg");
   background-repeat: no-repeat;
-  background-size: 50% 50%;
+  background-size: 100% 100%;
   margin: auto;
   background-position: center;
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .login_background {
     background-image: none;
   }
-}
+} */
 
 /* Payment */
 
@@ -106,6 +106,10 @@ input[type="number"] {
   .signup_background {
     background-image: none;
   }
+}
+
+.btn-vra-info {
+  background-color: transparent;
 }
 
 /* Add Beneficiary */

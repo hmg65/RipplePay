@@ -5,6 +5,8 @@ import { useUserAuth } from "../context/UserAuthContext";
 import UserDataService from "../services/user.services";
 import FaceRegister from "./FaceRegister";
 import validator from "validator";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 
 
@@ -13,6 +15,7 @@ import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import '../App.css' 
 import NavLogo from "../images/xrp_logo.svg";
+import InfoIcon from "../images/info_icon.svg";
 
 //Validate mobile number
 const validatePhoneNumber = (number) => {
@@ -88,12 +91,13 @@ const dateUpdated = new Date().toISOString();
     function enableModalCloseButton() {
       setModalCloseButton(false);
     }
+    
 
 
   return (
     <div>
       {/* Navbar start*/}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <nav className="navbar navbar-expand-lg navbar-dark">
       <Link className="navbar-brand d-flex align-items-center ms-1" to="/signup">
           <img src={NavLogo} className="rounded nav_logo"/>
           RipplePay</Link>
@@ -112,19 +116,18 @@ const dateUpdated = new Date().toISOString();
 
       {/* ----------Signup Card----------  */}
     
- <section className="vh-100 signup_background">
+ <section className="vh-100 login_background">
         <div className="container h-100 ">
-            <div className="row justify-content-end align-items-centre h-100">
+            <div className="row justify-content-center align-items-centre h-100">
 
                 <div className="col-md-auto d-flex justify-content-center align-items-center">
-                    <div className="card rounded-1 shadow">
+                    <div className="bg-transparent text-light border border-0 card">
                         <div className="card-body m-auto text-center d-flex flex-column float-left m-5">
                 
                             <div>
                             <h3 className="float-left fw-bold fs-3">Sign up to RipplePay</h3>
                             </div>
                     
-                          
         {message?.msg && (<Alert variant={message?.error ? "danger" : "success"}
     dismissible 
     onClose={()=> {setMessage("")}}
@@ -181,7 +184,28 @@ const dateUpdated = new Date().toISOString();
 
                               <div className="">
                                 <div className="d-flex float-left fw-bold">
-                                  <label className="form-label pt-4">Mobile Number</label>
+                                  {/* TODO: give i button for more info  */}
+                                  <label className="form-label pt-4">VRA</label>
+                                  <span className="pt-4">
+                                  <OverlayTrigger
+                                    placement="right"
+                                    overlay={<Tooltip id="button-tooltip-2">Virtual Ripple Address</Tooltip>}>
+                                    {({ ref, ...triggerHandler }) => (
+                                      <Button
+                                        variant="dark"
+                                        bg="transparent"
+                                        {...triggerHandler}
+                                        className="d-inline-flex align-items-center btn-vra-info border border-0"
+                                      >
+                                        <img
+                                          ref={ref}
+                                          roundedCircle
+                                          src={InfoIcon}
+                                        />
+                                      </Button>
+                                    )}
+                                  </OverlayTrigger>
+                                  </span>
                                   </div>
 
                                   <Form.Group controlId="formBasicMobileNumber">
@@ -201,7 +225,7 @@ const dateUpdated = new Date().toISOString();
                             
                               <div className="d-flex flex-column mt-2"> 
                                 <div> 
-                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-dark btn-lg btn-block" type="submit">
+                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-light btn-md btn-block" type="submit">
                                     Sign up </button>} 
                                 </div>
                               </div>
@@ -218,6 +242,9 @@ const dateUpdated = new Date().toISOString();
                 </div>
             </div>
         </div>
+
+        
+
     </section>
  {/* ----------Signup Card----------  */}
 
