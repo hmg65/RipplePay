@@ -14,7 +14,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "../App.css";
-import NavLogo from "../images/xrp_logo.svg";
+import NavLogo from "../images/microsoftLogo.svg";
+import axios from "axios";
 
 const Payment = () => {
   const { logOut, userLogout } = useUserAuth();
@@ -80,9 +81,9 @@ const Payment = () => {
   const [paymentMode, setPaymentMode] = useState("");
 
   //Recivers data
-  const [receiverFirstName, setReceiverFirstName] = useState("");
-  const [receiverLastName, setReceiverLastName] = useState("");
-  const [receiverEmail, setReceiverEmail] = useState("");
+  const [receiverName, setReceiverName] = useState("");
+
+  const [receiverVPA, setReceiverVPA] = useState("");
   const [receiverBalance, setReceiverBalance] = useState(0);
   const [receiverDocId, setReceiverDocId] = useState("");
 
@@ -127,7 +128,7 @@ const Payment = () => {
 
   // function to clear all the fields on the payment page
   function clearField() {
-    setReceiverEmail("");
+    setReceiverVPA("");
     setPaymentMode("");
     setAmount("");
     setError("Payment Canceled");
@@ -168,33 +169,43 @@ const Payment = () => {
 
   // check if user is not sending to himself only
   const handleVerify = async () => {
-    if (user.email === receiverEmail) {
-      setError("Transfer to Same Account not allowed.");
-    } else {
+    
+
+    
+
       try {
         // get data of email ID entered by user to send money
-        const q = query(
-          collection(db, "users"),
-          where("email", "==", receiverEmail)
-        );
+        const options = {
+          method: 'POST',
+          url: 'https://upi-verification.p.rapidapi.com/v3/tasks/sync/verify_with_source/ind_vpa',
+          headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': '2fb5dbf8e8mshe68bd5d842cbd53p1be6a3jsne1fa212c4582',
+            'X-RapidAPI-Host': 'upi-verification.p.rapidapi.com'
+          },
+          data: {"task_id":"UUID","group_id":"UUID","data":{"vpa":receiverVPA}}
+        };
+        
+        axios.request(options).then(function (response) {
+          console.log(response.data);
+          
+           if(response.data.result.name_at_bank != null)
+             { setVerify(true);
+              setReceiverName(response.data.result.name_at_bank);}
+              else{
+                setError("User Not Found");
+              }
+            
+           
+        }).catch(function (error) {
+          console.error(error);
+        });
 
-        const data = await getDocs(q);
-
-        if (data.docs.length > 0) {
-          data.forEach((doc) => {
-            setVerify(true);
-            setReceiverFirstName(doc.data().firstName);
-            setReceiverLastName(doc.data().lastName);
-            setReceiverBalance(doc.data().balance);
-            setReceiverDocId(doc.id);
-          });
-        } else {
-          setError("User Not Found");
-        }
+       
       } catch (err) {
         console.log({ error: true, msg: err.message });
       }
-    }
+    
   };
 
   return (
@@ -306,7 +317,7 @@ const Payment = () => {
                   <div>
                     <div className="">
                       <div className="d-flex float-left fw-bold">
-                        <label className="form-label pt-4">Email address</label>
+                        <label className="form-label pt-4">UPI Address</label>
                       </div>
                       <Form.Group controlId="formBasicEmail" className="">
                         <Form.Control
@@ -314,7 +325,7 @@ const Payment = () => {
                           type="email"
                           placeholder="for testing use - guptahemant65@gmail.com"
                           onChange={(e) => {
-                            setReceiverEmail(e.target.value);
+                            setReceiverVPA(e.target.value);
                             setVerify(false);
                             setError("");
                           }}
@@ -325,9 +336,7 @@ const Payment = () => {
                             {" "}
                             Name :
                             {" " +
-                              receiverFirstName +
-                              " " +
-                              receiverLastName}{" "}
+                              receiverName}{" "}
                           </button>
                         ) : (
                           <button
@@ -554,7 +563,7 @@ const Payment = () => {
               clearField={clearField}
               amount={parseInt(amount.replace(/[,₹]/g, ""))}
               senderEmail={email}
-              receiverEmail={receiverEmail}
+              receiverVPA={receiverVPA}
               senderBalance={balance}
               senderDocId={docId}
               paymentMode={paymentMode}
@@ -568,7 +577,7 @@ const Payment = () => {
               clearField={clearField}
               amount={parseInt(amount.replace(/[,₹]/g, ""))}
               senderEmail={email}
-              receiverEmail={receiverEmail}
+              receiverVPA={receiverVPA}
               senderBalance={balance}
               senderDocId={docId}
               paymentMode={paymentMode}
