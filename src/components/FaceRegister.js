@@ -112,7 +112,7 @@ function RegisterFaceAuth(props) {
                 await signUp(email, password);
                 await UserDataService.addUsers(newUser);
 
-                navigate("/");
+                navigate("/NewAccount");
               } else {
                 // in case multiple faces detected
                 if (response.data.length > 1) {

@@ -7,6 +7,7 @@ import Payment from "./components/Payment";
 import Profile from "./components/Profile";
 import TransactionHistory from "./components/TransactionHistory";
 import Receipt from "./components/Receipt";
+import NewAccount from "./components/NewAccount";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 
@@ -47,6 +48,15 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Receipt />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/NewAccount"
+                element={
+                  <ProtectedRoute>
+                    <NewAccount />
                   </ProtectedRoute>
                 }
               />

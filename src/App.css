@@ -108,8 +108,8 @@ input[type="number"] {
   }
 }
 
-.btn-vra-info {
-  background-color: transparent;
+.bg-tranparent {
+  background-color: #000000;
 }
 
 /* Add Beneficiary */
