@@ -165,8 +165,8 @@ const Payment = () => {
   const handleVerify = async () => {
 
     var session_url = 'https://api.razorpay.com/v1/payments/validate/vpa'
-    var uname = 'rzp_live_Po6RtZ6N0qt7Ga';
-    var pass = 'XIUWN7b1bAdQdSj9ftxMZjox';
+    var uname = process.env.REACT_APP_RZR_UNAME;
+    var pass = process.env.REACT_APP_RZR_PASS;
     axios.post(session_url, {"vpa": receiverVPA} , {
       headers : {
         "Content-Type": 'application/x-www-form-urlencoded; charset=UTF-8'
