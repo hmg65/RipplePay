@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "../App.css";
-import NavLogo from "../images/microsoftLogo.svg";
+import NavLogo from "../images/xrp_logo.svg";
 import axios from "axios";
 
 const Payment = () => {
@@ -90,6 +90,7 @@ const Payment = () => {
   // ----------Modal states----------
   const [showFirstModal, setShowFirstModal] = useState(false);
   const [showSecondModal, setShowSecondModal] = useState(false);
+  const [showQRModal, setShowQRModal] = useState(false);
 
   // to disable modal close button in modal footer
   function disableModalCloseButton() {
@@ -126,6 +127,15 @@ const Payment = () => {
     setModalOneCloseButton(false);
   }
 
+  // to close QR modal
+  function handleCloseQR() {
+    setShowQRModal(false);
+  }
+// to show QR modal
+  function handleShowQR() {
+    setShowQRModal(true);
+  }
+
   // function to clear all the fields on the payment page
   function clearField() {
     setReceiverVPA("");
@@ -143,25 +153,9 @@ const Payment = () => {
 
     if (balance < parseFloat(amount.replace(/[,₹]/g, ""))) {
       setError("Insufficient Balance");
-    } else if (
-      parseFloat(amount.replace(/[,₹]/g, "")) >= 200000 &&
-      paymentMode === "IMPS"
-    ) {
-      setError("Please select RTGS for payment above 200k");
-    } else if (
-      parseFloat(amount.replace(/[,₹]/g, "")) >= 200000 &&
-      paymentMode === "NEFT"
-    ) {
-      setError("Please select RTGS for payment above 200k");
-    } else if (parseFloat(amount.replace(/[,₹]/g, "")) === 0) {
+    } 
+     else if (parseFloat(amount.replace(/[,₹]/g, "")) === 0) {
       setError("Amount cannot be zero");
-    } else if (
-      parseFloat(amount.replace(/[,₹]/g, "")) < 200000 &&
-      paymentMode === "RTGS"
-    ) {
-      setError("Please select IMPS or NEFT for payment below 200k");
-    } else if (paymentMode === "") {
-      setError("Please select payment mode");
     } else if (balance >= parseFloat(amount.replace(/[,₹]/g, ""))) {
       handleShowFirst();
     }
@@ -194,7 +188,7 @@ const Payment = () => {
   return (
     <div>
       {/* ----------Navbar---------- */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <nav className="navbar navbar-expand-lg navbar-dark shadow">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={NavLogo} className="rounded nav_logo me-1" />
@@ -285,11 +279,11 @@ const Payment = () => {
 
       {/* ----------Dashbord---------- */}
 
-      <section className="vh-100 payment_background">
-        <div className="container h-100 ">
-          <div className="row justify-content-end align-items-centre h-100 bg-image">
-            <div className="col-md-auto d-flex justify-content-center align-items-center">
-              <div className="card rounded-1 shadow">
+      <section className="vh-100">
+        <div className="container h-100">
+          <div className="row justify-content-center align-items-centre h-100 bg-image">
+            <div className="mx-auto d-flex justify-content-center align-items-center">
+              <div className="card rounded-1 shadow bg-tranparent text-light">
                 <div className="card-body p-5 m-4 text-center d-flex flex-column float-left">
                   {error && <Alert variant="danger">{error}</Alert>}
 
@@ -329,6 +323,12 @@ const Payment = () => {
                             Verify{" "}
                           </button>
                         )}
+
+                        <button
+                          className="btn btn-light mt-2 ms-2" onClick={handleShowQR}>
+                            Scan QR
+                        </button>
+
                       </Form.Group>
                     </div>
 
@@ -358,100 +358,7 @@ const Payment = () => {
                       </Form.Group>
                     </div>
 
-                    <div className="container">
-                      <div className="row mt-3">
-                        <label className="form-label fw-bold">
-                          Payment Method
-                        </label>
-
-                        {/* <div className="col">
-                            <div className="form-check form-check-inline">
-                              <input className="form-check-input" type="radio" id="inlineRadio2" name="paymentMethod" value="IMPS"
-                              onChange={(e) => {setPaymentMode(e.target.value); setError("")}}
-                              />
-                              <label className="form-check-label" htmlFor="inlineRadio2">IMPS</label>
-                            </div>
-                            </div>
-                              
-                            <div className="col">
-                            <div className="form-check form-check-inline">
-                              <input className="form-check-input" type="radio" id="inlineRadio2" name="paymentMethod" value="NEFT"
-                              onChange={(e) => {setPaymentMode(e.target.value); setError("")}}
-                              />
-                              <label className="form-check-label" htmlFor="inlineRadio2">NEFT</label>
-                            </div>
-                            </div>
-                              
-                            <div className="col">
-                            <div className="form-check form-check-inline" >
-                              <input className="form-check-input" type="radio" id="inlineRadio3" name="paymentMethod" value="RTGS"
-                              onChange={(e) => {setPaymentMode(e.target.value); setError("")}}
-                              />
-                              <label className="form-check-label" htmlFor="inlineRadio3">RTGS</label>
-                          </div>
-                          </div> */}
-
-                        <div
-                          className="btn-group "
-                          role="group"
-                          aria-label="Basic radio toggle button group"
-                        >
-                          <input
-                            type="radio"
-                            className="btn-check"
-                            name="paymentMethod"
-                            id="btnradio1"
-                            value="IMPS"
-                            onChange={(e) => {
-                              setPaymentMode(e.target.value);
-                              setError("");
-                            }}
-                          />
-                          <label
-                            className="btn btn-outline-dark"
-                            htmlFor="btnradio1"
-                          >
-                            IMPS
-                          </label>
-
-                          <input
-                            type="radio"
-                            className="btn-check"
-                            name="paymentMethod"
-                            id="btnradio2"
-                            value="NEFT"
-                            onChange={(e) => {
-                              setPaymentMode(e.target.value);
-                              setError("");
-                            }}
-                          />
-                          <label
-                            className="btn btn-outline-dark"
-                            htmlFor="btnradio2"
-                          >
-                            NEFT
-                          </label>
-
-                          <input
-                            type="radio"
-                            className="btn-check"
-                            name="paymentMethod"
-                            id="btnradio3"
-                            value="RTGS"
-                            onChange={(e) => {
-                              setPaymentMode(e.target.value);
-                              setError("");
-                            }}
-                          />
-                          <label
-                            className="btn btn-outline-dark"
-                            htmlFor="btnradio3"
-                          >
-                            RTGS
-                          </label>
-                        </div>
-                      </div>
-                    </div>
+                   
 
                     {/* ----------First Modal trigger button---------- */}
                     <div className="d-flex flex-column mt-4">
@@ -582,6 +489,29 @@ const Payment = () => {
         </Modal.Footer>
       </Modal>
       {/* ----------Second Modal---------- */}
+
+
+            {/* ----------QR Code Modal---------- */}
+            <Modal
+        size="lg"
+        // backdrop="static"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={showQRModal}
+        onHide={handleCloseQR}
+      >
+        <Modal.Header>
+          <Modal.Title>
+            Scan QR Code
+          </Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body className="m-auto">
+          <p> Modal body</p>
+        </Modal.Body>
+      </Modal>
+      {/* ----------QR Code Modal---------- */}
+
     </div>
   );
 };

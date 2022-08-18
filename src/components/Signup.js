@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert, Modal, Button, Spinner } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
 import UserDataService from "../services/user.services";
@@ -31,6 +31,7 @@ const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [mobileNumber, setMobileNumber] =useState("");
   const [message, setMessage] = useState({error : false, msg : ""});
+  const [seed, setSeed] =useState("");
   const password = "engage@1234";
   const balance = 10000;
   const { signUp } = useUserAuth();
@@ -47,7 +48,7 @@ const dateUpdated = new Date().toISOString();
     setMessage("");
 
     //Form is empty or not
-    if(firstName === "" || lastName === "" || email === "" || mobileNumber === ""){
+    if(firstName === "" || lastName === "" || email === "" || mobileNumber === "" || seed === ""){
     
         setMessage({error : true, msg : "All fields are mandatory"});
         return;
@@ -92,6 +93,32 @@ const dateUpdated = new Date().toISOString();
       setModalCloseButton(false);
     }
     
+    const navigate = useNavigate();
+
+    // new signup button
+    const newSignup = async (e) => {
+      e.preventDefault();
+      setMessage("");
+  
+      //Form is empty or not
+      if(firstName === "" || lastName === "" || email === "" || mobileNumber === "" || seed === ""){
+      
+          setMessage({error : true, msg : "All fields are mandatory"});
+          return;
+      }
+  
+      //Given mobile number is validation
+      if(!validatePhoneNumber(mobileNumber))
+      {
+        setMessage({error : true, msg : "Enter valid mobile number"});
+        return;
+      }
+  
+      
+      setLoading(true);
+      setMessage({error:false, msg:"Capture image to proceed further"});
+        handleShow();
+    };
 
 
   return (
@@ -184,7 +211,6 @@ const dateUpdated = new Date().toISOString();
 
                               <div className="">
                                 <div className="d-flex float-left fw-bold">
-                                  {/* TODO: give i button for more info  */}
                                   <label className="form-label pt-4">VRA</label>
                                   <span className="pt-4">
                                   <OverlayTrigger
@@ -195,7 +221,7 @@ const dateUpdated = new Date().toISOString();
                                         variant="dark"
                                         bg="transparent"
                                         {...triggerHandler}
-                                        className="d-inline-flex align-items-center btn-vra-info border border-0"
+                                        className="d-inline-flex align-items-center bg-tranparent border border-0"
                                       >
                                         <img
                                           ref={ref}
@@ -221,12 +247,30 @@ const dateUpdated = new Date().toISOString();
                                 </Form.Group>
                               </div>
 
+                              <div className="">
+                                <div className="d-flex float-left fw-bold">
+                                  <label className="form-label pt-4">Seed</label>
+                                  </div>
+
+                                  <Form.Group controlId="formBasicSeed">
+                                  <Form.Control
+                                    className="border-dark border-1 p-2 form-control-lg"
+                                    type="number"
+                                    onChange={(e) => setSeed(e.target.value)}
+                                  />
+                                </Form.Group>
+                              </div>
+
                            
                             
-                              <div className="d-flex flex-column mt-2"> 
+                              <div className="d-flex flex-row justify-content-center mt-2"> 
                                 <div> 
                                   {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-light btn-md btn-block" type="submit">
                                     Sign up </button>} 
+                                </div>
+                                <div> 
+                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-light btn-md btn-block" onClick={newSignup}>
+                                    New Sign up </button>} 
                                 </div>
                               </div>
 

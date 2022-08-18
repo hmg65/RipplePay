@@ -205,7 +205,7 @@ const Home = () => {
   return (
     <div>
       {/* ----------Navbar---------- */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <nav className="navbar navbar-expand-lg navbar-dark shadow">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={NavLogo} className="rounded nav_logo me-1" />
@@ -238,14 +238,14 @@ const Home = () => {
           >
             <ul className="navbar-nav d-flex flex-row">
               <div
-                className="bg-dark text-light m-2"
+                className="text-light m-2"
                 role="button"
                 onClick={profile}
               >
                 Profile
               </div>
               <div
-                className="bg-dark text-light m-2"
+                className=" text-light m-2"
                 role="button"
                 onClick={handleLogout}
               >
@@ -258,7 +258,7 @@ const Home = () => {
      
 
       {/* ----------Dashbord---------- */}
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center home_background">
         <div className="m-auto mt-0 w-100">
           <div className="card mt-4 special_card ms-3 me-3 shadow-lg">
             <div className="card-body">

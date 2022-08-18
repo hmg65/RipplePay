@@ -108,8 +108,8 @@ input[type="number"] {
   }
 }
 
-.btn-vra-info {
-  background-color: transparent;
+.bg-tranparent {
+  background-color: #000000;
 }
 
 /* Add Beneficiary */
@@ -275,4 +275,12 @@ input[type="number"] {
 
 .cancel_button {
   background-color: #f34616;
+}
+
+.home_background {
+  background-image: url("./images/home_background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: auto;
+  background-position: center;
 }
