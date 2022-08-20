@@ -15,7 +15,6 @@ import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "../App.css";
 import NavLogo from "../images/xrp_logo.svg";
-import axios from "axios";
 
 const Payment = () => {
   const { logOut, userLogout } = useUserAuth();
@@ -101,19 +100,19 @@ const Payment = () => {
   function enableModalCloseButton() {
     setModalOneCloseButton(false);
   }
-  
-// to close first modal
+
+  // to close first modal
   function handleCloseFirst() {
     setShowFirstModal(false);
     setLoadingFirst(false);
   }
-// to show first modal
+  // to show first modal
   function handleShowFirst() {
     setShowFirstModal(true);
     setLoadingFirst(true);
   }
 
-// to close second modal
+  // to close second modal
   function handleCloseSecond() {
     setShowSecondModal(false);
     setLoadingSecond(false);
@@ -131,7 +130,7 @@ const Payment = () => {
   function handleCloseQR() {
     setShowQRModal(false);
   }
-// to show QR modal
+  // to show QR modal
   function handleShowQR() {
     setShowQRModal(true);
   }
@@ -148,13 +147,11 @@ const Payment = () => {
     setLoadingFirst(false);
   }
 
-  // validation checks to ascertain Payment Type 
+  // validation checks to ascertain Payment Type
   function handlePayNow() {
-
     if (balance < parseFloat(amount.replace(/[,₹]/g, ""))) {
       setError("Insufficient Balance");
-    } 
-     else if (parseFloat(amount.replace(/[,₹]/g, "")) === 0) {
+    } else if (parseFloat(amount.replace(/[,₹]/g, "")) === 0) {
       setError("Amount cannot be zero");
     } else if (balance >= parseFloat(amount.replace(/[,₹]/g, ""))) {
       handleShowFirst();
@@ -163,27 +160,19 @@ const Payment = () => {
 
   // check if user is not sending to himself only
   const handleVerify = async () => {
+    const api_url = `https://rzr-server.vercel.app/api/validate/${receiverVPA}`;
+    const response = await fetch(api_url);
+    const json = await response.json();
+    const name = json.customer_name;
 
-    var session_url = 'https://api.razorpay.com/v1/payments/validate/vpa'
-    var uname = process.env.REACT_APP_RZR_UNAME;
-    var pass = process.env.REACT_APP_RZR_PASS;
-    axios.post(session_url, {"vpa": receiverVPA} , {
-      headers : {
-        "Content-Type": 'application/x-www-form-urlencoded; charset=UTF-8'
-      },
-      auth: {
-        "username": uname,
-        "password": pass
-      }
-    }).then(function(response) {
-      console.log(response);
-    }).catch(function(error) {
-      console.log(error);
-    });       
-
+    if(name!=null){
+      setVerify(true);
+      setReceiverName(name);
+    }
+    else{
+      setError("Invalid. Please check your UPI Address again.");
+    }
   };
-    
- 
 
   return (
     <div>
@@ -311,9 +300,7 @@ const Payment = () => {
                         {verify ? (
                           <button className="btn btn-success mt-2 disabled">
                             {" "}
-                            Name :
-                            {" " +
-                              receiverName}{" "}
+                            Name :{" " + receiverName}{" "}
                           </button>
                         ) : (
                           <button
@@ -325,10 +312,11 @@ const Payment = () => {
                         )}
 
                         <button
-                          className="btn btn-light mt-2 ms-2" onClick={handleShowQR}>
-                            Scan QR
+                          className="btn btn-light mt-2 ms-2"
+                          onClick={handleShowQR}
+                        >
+                          Scan QR
                         </button>
-
                       </Form.Group>
                     </div>
 
@@ -357,8 +345,6 @@ const Payment = () => {
                         />
                       </Form.Group>
                     </div>
-
-                   
 
                     {/* ----------First Modal trigger button---------- */}
                     <div className="d-flex flex-column mt-4">
@@ -490,9 +476,8 @@ const Payment = () => {
       </Modal>
       {/* ----------Second Modal---------- */}
 
-
-            {/* ----------QR Code Modal---------- */}
-            <Modal
+      {/* ----------QR Code Modal---------- */}
+      <Modal
         size="lg"
         // backdrop="static"
         aria-labelledby="contained-modal-title-vcenter"
@@ -501,9 +486,7 @@ const Payment = () => {
         onHide={handleCloseQR}
       >
         <Modal.Header>
-          <Modal.Title>
-            Scan QR Code
-          </Modal.Title>
+          <Modal.Title>Scan QR Code</Modal.Title>
         </Modal.Header>
 
         <Modal.Body className="m-auto">
@@ -511,7 +494,6 @@ const Payment = () => {
         </Modal.Body>
       </Modal>
       {/* ----------QR Code Modal---------- */}
-
     </div>
   );
 };
