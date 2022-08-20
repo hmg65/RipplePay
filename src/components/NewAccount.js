@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js';
 import '../App.css'
-import NavLogo from "../images/xrp_logo.svg";
+import NavLogo from "../images/Ripple_Logo.svg";
 
 const NewAccount = () => {
 const navigate = useNavigate();
@@ -21,9 +21,9 @@ const proceedToLogin = () => {
   <div>
 
     {/* ----------Navbar---------- */}
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <Link className="navbar-brand d-flex align-items-center ms-1" to="/">
-        <img src={NavLogo} className="rounded nav_logo"/>
+        <img src={NavLogo} className="rounded nav_logo me-1"/>
         RipplePay
       </Link>
 
@@ -40,9 +40,9 @@ const proceedToLogin = () => {
 
 
     {/* display data coming from signup form Name, email, vra, seed */}
-    <div class="d-flex flex-column gap-4 ms-4  me-4 mt-4 text-dark">
+    <div class="d-flex flex-column gap-4 ms-4  me-4 mt-4">
       <div class="card">
-        <div class="card-header bg-tranparent text-light border border-dark">
+        <div class="card-header border border-0 fw-bold">
           Name:
         </div>
         <div class="card-body">
@@ -53,7 +53,7 @@ const proceedToLogin = () => {
       </div>
 
       <div class="card">
-        <div class="card-header bg-tranparent text-light border border-dark">
+        <div class="card-header border border-0 fw-bold">
           Email:
         </div>
         <div class="card-body">
@@ -64,7 +64,7 @@ const proceedToLogin = () => {
       </div>
 
       <div class="card">
-        <div class="card-header bg-tranparent text-light border border-dark">
+        <div class="card-header border border-0 fw-bold">
           VRA:
         </div>
         <div class="card-body">
@@ -75,7 +75,7 @@ const proceedToLogin = () => {
       </div>
 
       <div class="card">
-        <div class="card-header bg-tranparent text-light border border-dark">
+        <div class="card-header border border-0 fw-bold">
           Seed:
         </div>
         <div class="card-body">
@@ -88,7 +88,7 @@ const proceedToLogin = () => {
     </div>
 
     <div className="text-center mt-4">
-      <button type="button" class="btn btn-light" onClick={proceedToLogin}>proceed to login</button>
+      <button type="button" class="btn btn-dark" onClick={proceedToLogin}>Proceed to Login</button>
     </div>
 	</div>
     )

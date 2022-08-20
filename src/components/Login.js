@@ -8,7 +8,7 @@ import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js"; 
-import NavLogo from "../images/xrp_logo.svg";
+import RippleLogo from "../images/Ripple_Logo.svg";
 
 
 
@@ -79,7 +79,7 @@ const Login = () => {
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <Link className="navbar-brand d-flex align-items-center ms-1" to="/">
-          <img src={NavLogo} className="rounded nav_logo me-1"/>
+          <img src={RippleLogo} className="rounded nav_logo me-1"/>
           RipplePay
         </Link>
 
@@ -107,8 +107,9 @@ const Login = () => {
               <div className="bg-transparent border border-0 mb-5">
                 <div className="card-body text-center d-flex flex-column float-left p-0">
 
-                  <div>
-                    <h3 className="float-center fw-bold fs-3">RipplePay</h3>
+                  <div className="d-flex flex-row align-items-center justify-content-center">
+                    <img src={RippleLogo} className=""/>
+                    <h3 className="fw-bold m-0">Pay</h3>
                   </div>
                       
                   {error && <Alert variant="danger">{error}</Alert>}

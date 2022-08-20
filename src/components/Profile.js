@@ -15,7 +15,7 @@ import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import '../App.css'
 import userImage from '../images/User.svg'
-import NavLogo from "../images/xrp_logo.svg";
+import RippleLogo from "../images/Ripple_Logo.svg";
 import EditLogo from "../images/Edit.svg";
 import { FaEdit } from "react-icons/fa";
 
@@ -184,7 +184,7 @@ deleteUser(user).then(() => {
         <div className="container-fluid">
 
           <Link className="navbar-brand d-flex align-items-center" to="/home">
-            <img src={NavLogo} className="rounded nav_logo me-1"/>
+            <img src={RippleLogo} className="rounded nav_logo me-1"/>
             RipplePay</Link>
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

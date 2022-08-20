@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "../App.css";
-import NavLogo from "../images/xrp_logo.svg";
+import RippleLogo from "../images/Ripple_Logo.svg";
 import axios from "axios";
 
 const Payment = () => {
@@ -191,8 +191,8 @@ const Payment = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
-            <img src={NavLogo} className="rounded nav_logo me-1" />
-            MS Bank
+            <img src={RippleLogo} className="rounded nav_logo me-1" />
+            RipplePay
           </Link>
           <div className="text-light">
             Current Balance:
@@ -304,7 +304,7 @@ const Payment = () => {
                         <Form.Control
                           className="border-dark border-1 shadow-none p-2 m-1"
                           type="email"
-                          placeholder="for testing use - guptahemant65@gmail.com"
+                          placeholder="UPI Address"
                           onChange={(e) => {
                             setReceiverVPA(e.target.value);
                             setVerify(false);
@@ -491,7 +491,7 @@ const Payment = () => {
 
 
             {/* ----------QR Code Modal---------- */}
-            <Modal
+      <Modal
         size="lg"
         // backdrop="static"
         aria-labelledby="contained-modal-title-vcenter"
