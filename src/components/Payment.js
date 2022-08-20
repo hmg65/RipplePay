@@ -164,40 +164,26 @@ const Payment = () => {
   // check if user is not sending to himself only
   const handleVerify = async () => {
 
-      try {
-        // get data of email ID entered by user to send money
-        const options = {
-          method: 'POST',
-          url: 'https://upi-verification.p.rapidapi.com/v3/tasks/sync/verify_with_source/ind_vpa',
-          headers: {
-            'content-type': 'application/json',
-            'X-RapidAPI-Key': '2fb5dbf8e8mshe68bd5d842cbd53p1be6a3jsne1fa212c4582',
-            'X-RapidAPI-Host': 'upi-verification.p.rapidapi.com'
-          },
-          data: {"task_id":"UUID","group_id":"UUID","data":{"vpa":receiverVPA}}
-        };
-        
-        axios.request(options).then(function (response) {
-          console.log(response.data);
-          
-           if(response.data.result.name_at_bank != null)
-             { setVerify(true);
-              setReceiverName(response.data.result.name_at_bank);}
-              else{
-                setError("User Not Found");
-              }
-            
-           
-        }).catch(function (error) {
-          console.error(error);
-        });
-
-       
-      } catch (err) {
-        console.log({ error: true, msg: err.message });
+    var session_url = 'https://api.razorpay.com/v1/payments/validate/vpa'
+    var uname = process.env.REACT_APP_RZR_UNAME;
+    var pass = process.env.REACT_APP_RZR_PASS;
+    axios.post(session_url, {"vpa": receiverVPA} , {
+      headers : {
+        "Content-Type": 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      auth: {
+        "username": uname,
+        "password": pass
       }
-    
+    }).then(function(response) {
+      console.log(response);
+    }).catch(function(error) {
+      console.log(error);
+    });       
+
   };
+    
+ 
 
   return (
     <div>
@@ -206,7 +192,7 @@ const Payment = () => {
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={NavLogo} className="rounded nav_logo me-1" />
-            RipplePay
+            MS Bank
           </Link>
           <div className="text-light">
             Current Balance:
@@ -318,7 +304,7 @@ const Payment = () => {
                         <Form.Control
                           className="border-dark border-1 shadow-none p-2 m-1"
                           type="email"
-                          placeholder="UPI Address"
+                          placeholder="for testing use - guptahemant65@gmail.com"
                           onChange={(e) => {
                             setReceiverVPA(e.target.value);
                             setVerify(false);
