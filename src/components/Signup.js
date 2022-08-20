@@ -124,7 +124,7 @@ const dateUpdated = new Date().toISOString();
   return (
     <div>
       {/* Navbar start*/}
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <Link className="navbar-brand d-flex align-items-center ms-1" to="/signup">
           <img src={NavLogo} className="rounded nav_logo"/>
           RipplePay</Link>
@@ -143,16 +143,16 @@ const dateUpdated = new Date().toISOString();
 
       {/* ----------Signup Card----------  */}
     
- <section className="vh-100 login_background">
+ <section className="vh-100">
         <div className="container h-100 ">
             <div className="row justify-content-center align-items-centre h-100">
 
                 <div className="col-md-auto d-flex justify-content-center align-items-center">
-                    <div className="bg-transparent text-light border border-0 card">
+                    <div className="bg-transparent border border-0 card">
                         <div className="card-body m-auto text-center d-flex flex-column float-left m-5">
                 
                             <div>
-                            <h3 className="float-left fw-bold fs-3">Sign up to RipplePay</h3>
+                            <h3 className="float-left fw-bold fs-3">Sign up</h3>
                             </div>
                     
         {message?.msg && (<Alert variant={message?.error ? "danger" : "success"}
@@ -218,10 +218,10 @@ const dateUpdated = new Date().toISOString();
                                     overlay={<Tooltip id="button-tooltip-2">Virtual Ripple Address</Tooltip>}>
                                     {({ ref, ...triggerHandler }) => (
                                       <Button
-                                        variant="dark"
+                                        variant=""
                                         bg="transparent"
                                         {...triggerHandler}
-                                        className="d-inline-flex align-items-center bg-tranparent border border-0"
+                                        className="d-inline-flex align-items-center border border-0"
                                       >
                                         <img
                                           ref={ref}
@@ -265,11 +265,11 @@ const dateUpdated = new Date().toISOString();
                             
                               <div className="d-flex flex-row justify-content-center mt-2"> 
                                 <div> 
-                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-light btn-md btn-block" type="submit">
+                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-dark btn-md btn-block" type="submit">
                                     Sign up </button>} 
                                 </div>
                                 <div> 
-                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-light btn-md btn-block" onClick={newSignup}>
+                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-dark btn-md btn-block" onClick={newSignup}>
                                     New Sign up </button>} 
                                 </div>
                               </div>
