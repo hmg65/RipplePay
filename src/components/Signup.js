@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import '../App.css' 
-import NavLogo from "../images/xrp_logo.svg";
+import RippleLogo from "../images/Ripple_Logo.svg";
 import InfoIcon from "../images/info_icon.svg";
 
 //Validate mobile number
@@ -126,7 +126,7 @@ const dateUpdated = new Date().toISOString();
       {/* Navbar start*/}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <Link className="navbar-brand d-flex align-items-center ms-1" to="/signup">
-          <img src={NavLogo} className="rounded nav_logo"/>
+          <img src={RippleLogo} className="rounded nav_logo me-1"/>
           RipplePay</Link>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -267,10 +267,6 @@ const dateUpdated = new Date().toISOString();
                                 <div> 
                                   {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-dark btn-md btn-block" type="submit">
                                     Sign up </button>} 
-                                </div>
-                                <div> 
-                                  {loading ? <Spinner animation="border" className="mt-2" /> : <button className="btn btn-dark btn-md btn-block" onClick={newSignup}>
-                                    New Sign up </button>} 
                                 </div>
                               </div>
 

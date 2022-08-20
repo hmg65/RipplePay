@@ -20,7 +20,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
-import NavLogo from "../images/xrp_logo.svg";
+import RippleLogo from "../images/Ripple_Logo.svg";
 
 const Home = () => {
   const { logOut } = useUserAuth();
@@ -132,6 +132,9 @@ const Home = () => {
   const [amountError, setAmountError] = useState(false);
   const [txnId, setTxnId] = useState(null);
 
+  // ---------QR Code Modal state---------
+  const [showQRModal, setShowQRModal] = useState(false);
+
   // closing txn receipt
   const handleReceiptClose = () => {
     setShowReceipt(false);
@@ -156,6 +159,16 @@ const Home = () => {
     setShow(true);
   };
 
+    // to close QR modal
+    function handleCloseQR() {
+      setShowQRModal(false);
+    }
+  // to show QR modal
+    function handleShowQR() {
+      setShowQRModal(true);
+    }
+
+    
   //Deposit money states
   const [amount, setAmount] = useState(0);
 
@@ -208,7 +221,7 @@ const Home = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
-            <img src={NavLogo} className="rounded nav_logo me-1" />
+            <img src={RippleLogo} className="rounded nav_logo me-1" />
             RipplePay
           </Link>
           <div className="text-light ms-0 current_balance_nav">
@@ -377,17 +390,17 @@ const Home = () => {
           </div>
 
           <div className="d-flex flex-md-row mb-3 flex-column justify-content-center">
-            {/* <Link className="text-decoration-none" to="/Profile">
+            {/* <Link className="text-decoration-none" to="/Profile"> */}
               <div className="p-2 d-flex justify-content-center">
                 <div className="card text-white bg-dark m-3" style={cardStyle}>
-                  <button className="card-body text-center">
+                  <button className="card-body text-center" onClick={handleShowQR}>
                     <h5 className="card-title">
-                      <strong>Update Profile</strong>
+                      <strong>QR Code</strong>
                     </h5>
                   </button>
                 </div>
               </div>
-            </Link> */}
+            {/* </Link> */}
 
             <Link className="text-decoration-none" to="/TransactionHistory">
               <div className="p-2 d-flex justify-content-center">
@@ -495,6 +508,28 @@ const Home = () => {
             </Button>
           </Modal.Footer>
         </Modal>
+
+        {/* ----------QR Code Modal---------- */}
+      <Modal
+        size="lg"
+        // backdrop="static"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={showQRModal}
+        onHide={handleCloseQR}
+      >
+        <Modal.Header>
+          <Modal.Title>
+            Scan QR Code
+          </Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body className="m-auto">
+          <p> Modal body</p>
+        </Modal.Body>
+      </Modal>
+      {/* ----------QR Code Modal---------- */}
+
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "../App.css";
-import NavLogo from "../images/xrp_logo.svg";
+import RippleLogo from "../images/Ripple_Logo.svg";
 
 const TransactionHistory = () => {
   const { logOut, userLogout } = useUserAuth();
@@ -84,7 +84,7 @@ const TransactionHistory = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
-            <img src={NavLogo} className="rounded nav_logo me-1" />
+            <img src={RippleLogo} className="rounded nav_logo me-1" />
             RipplePay
           </Link>
 
