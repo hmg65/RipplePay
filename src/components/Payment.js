@@ -303,10 +303,12 @@ const Payment = () => {
                         />
 
                         {verify ? (
-                          <button className="btn btn-success m-2 disabled">
-                            {" "}
-                            Name :{" " + receiverName}{" "}
-                          </button>
+                          <>
+                            <div className="fw-bold"> {receiverName} </div>
+                            <button className="btn btn-success m-2 disabled">
+                            Verefied{" "}
+                            </button>
+                          </>
                         ) : (
                           <button
                             className="btn btn-warning mt-2"
@@ -315,13 +317,6 @@ const Payment = () => {
                             Verify{" "}
                           </button>
                         )}
-
-                        <button
-                          className="btn btn-light mt-2 ms-2"
-                          onClick={handleShowQR}
-                        >
-                          Scan QR
-                        </button>
                       </Form.Group>
                     </div>
 
