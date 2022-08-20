@@ -202,7 +202,7 @@ const Payment = () => {
   return (
     <div>
       {/* ----------Navbar---------- */}
-      <nav className="navbar navbar-expand-lg navbar-dark shadow">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={NavLogo} className="rounded nav_logo me-1" />
@@ -297,7 +297,7 @@ const Payment = () => {
         <div className="container h-100">
           <div className="row justify-content-center align-items-centre h-100 bg-image">
             <div className="mx-auto d-flex justify-content-center align-items-center">
-              <div className="card rounded-1 shadow bg-tranparent text-light">
+              <div className="card rounded-1 shadow">
                 <div className="card-body p-5 m-4 text-center d-flex flex-column float-left">
                   {error && <Alert variant="danger">{error}</Alert>}
 
@@ -307,14 +307,18 @@ const Payment = () => {
 
                   <div>
                     <div className="">
-                      <div className="d-flex float-left fw-bold">
-                        <label className="form-label pt-4">UPI Address</label>
+                      <div className="d-flex justify-content-center fw-bold">
+                        <button
+                          className="btn btn-success m-1" onClick={handleShowQR}>
+                            Scan QR
+                        </button>
                       </div>
+                      <div className="fw-bold m-1">OR</div>
                       <Form.Group controlId="formBasicEmail" className="">
                         <Form.Control
-                          className="border-dark border-1 shadow-none p-2"
+                          className="border-dark border-1 shadow-none p-2 m-1"
                           type="email"
-                          placeholder="for testing use - guptahemant65@gmail.com"
+                          placeholder="UPI Address"
                           onChange={(e) => {
                             setReceiverVPA(e.target.value);
                             setVerify(false);
@@ -323,7 +327,7 @@ const Payment = () => {
                         />
 
                         {verify ? (
-                          <button className="btn btn-success mt-2 disabled">
+                          <button className="btn btn-success m-2 disabled">
                             {" "}
                             Name :
                             {" " +
@@ -337,11 +341,6 @@ const Payment = () => {
                             Verify{" "}
                           </button>
                         )}
-
-                        <button
-                          className="btn btn-light mt-2 ms-2" onClick={handleShowQR}>
-                            Scan QR
-                        </button>
 
                       </Form.Group>
                     </div>

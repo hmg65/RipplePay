@@ -205,7 +205,7 @@ const Home = () => {
   return (
     <div>
       {/* ----------Navbar---------- */}
-      <nav className="navbar navbar-expand-lg navbar-dark shadow">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={NavLogo} className="rounded nav_logo me-1" />
@@ -258,7 +258,7 @@ const Home = () => {
      
 
       {/* ----------Dashbord---------- */}
-      <div className="d-flex align-items-center home_background">
+      <div className="d-flex align-items-center">
         <div className="m-auto mt-0 w-100">
           <div className="card mt-4 special_card ms-3 me-3 shadow-lg">
             <div className="card-body">
@@ -377,7 +377,7 @@ const Home = () => {
           </div>
 
           <div className="d-flex flex-md-row mb-3 flex-column justify-content-center">
-            <Link className="text-decoration-none" to="/Profile">
+            {/* <Link className="text-decoration-none" to="/Profile">
               <div className="p-2 d-flex justify-content-center">
                 <div className="card text-white bg-dark m-3" style={cardStyle}>
                   <button className="card-body text-center">
@@ -387,7 +387,7 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-            </Link>
+            </Link> */}
 
             <Link className="text-decoration-none" to="/TransactionHistory">
               <div className="p-2 d-flex justify-content-center">

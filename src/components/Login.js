@@ -77,7 +77,7 @@ const Login = () => {
   return (
     <div>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <Link className="navbar-brand d-flex align-items-center ms-1" to="/">
           <img src={NavLogo} className="rounded nav_logo me-1"/>
           RipplePay
@@ -100,15 +100,15 @@ const Login = () => {
 
       {/* ----------Login Card----------  */}
     
-      <section className="vh-100 login_background mb-5">
+      <section className="vh-100 mb-5">
         <div className="container h-100">
           <div className="row justify-content-center align-items-centre h-100">
             <div className="d-flex justify-content-center align-items-center">
-              <div className="bg-transparent text-light border border-0 mb-5">
+              <div className="bg-transparent border border-0 mb-5">
                 <div className="card-body text-center d-flex flex-column float-left p-0">
 
                   <div>
-                    <h3 className="float-center fw-bold fs-3">Log in to RipplePay</h3>
+                    <h3 className="float-center fw-bold fs-3">RipplePay</h3>
                   </div>
                       
                   {error && <Alert variant="danger">{error}</Alert>}
@@ -127,7 +127,7 @@ const Login = () => {
                     {/* ----------Modal trigger button---------- */}
                     <div className="d-flex flex-column gap-2"> 
                       <div> 
-                        {loading ? <Spinner animation="border" /> : <button className="btn btn-light btn-md btn-block" type="submit"> Login </button>}   
+                        {loading ? <Spinner animation="border" /> : <button className="btn btn-dark btn-md btn-block" type="submit"> Login </button>}   
                       </div>
                     </div>
 
