@@ -7,8 +7,6 @@ import { storage } from "../firebase";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import { useUserAuth } from "../context/UserAuthContext";
 import UserDataService from "../services/user.services";
-import { data } from "jquery";
-import xrpl from "xrpl";
 
 function RegisterFaceAuth(props) {
   //states for webcam
@@ -103,19 +101,19 @@ function RegisterFaceAuth(props) {
 
 
                if(seed===""){
-               const wallet = xrpl.Wallet.generate();
-               setWalletAddress(wallet.address);
-               setWalletSeed(wallet.seed);
-               setWalletBalance(0);
+           
+               //setWalletAddress(wallet.address);
+               //setWalletSeed(wallet.seed);
+               //setWalletBalance(0);
                }else{
                    
-                const wallet = xrpl.Wallet.fromSeed(seed);
-                setWalletAddress(wallet.address);
-                setWalletSeed(wallet.seed);
-                setWalletBalance();
+                
+                //setWalletAddress(wallet.address);
+                //setWalletSeed(wallet.seed);
+                //setWalletBalance();
                 }
 
-               client.disconnect();
+               //client.disconnect();
 
                 const newUser = {
                   dateCreated,
