@@ -15,7 +15,6 @@ import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "../App.css";
 import RippleLogo from "../images/Ripple_Logo.svg";
-import axios from "axios";
 
 const Payment = () => {
   const { logOut, userLogout } = useUserAuth();
@@ -306,7 +305,7 @@ const Payment = () => {
                           <>
                             <div className="fw-bold"> {receiverName} </div>
                             <button className="btn btn-success m-2 disabled">
-                            Verefied{" "}
+                            Vereified{" "}
                             </button>
                           </>
                         ) : (

@@ -8,6 +8,7 @@ import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import { useUserAuth } from "../context/UserAuthContext";
 import UserDataService from "../services/user.services";
 import { data } from "jquery";
+import xrpl from "xrpl";
 
 function RegisterFaceAuth(props) {
   //states for webcam
@@ -23,6 +24,9 @@ function RegisterFaceAuth(props) {
   //states for send backend data
   const [userId, setuserId] = useState("");
   const [StateOfProcess, setStateOfProcess] = useState("");
+  const [walletAddress, setWalletAddress] = useState("");
+  const [walletSeed, setWalletSeed] = useState("");
+  const [walletBalance, setWalletBalance] = useState("");
 
   //Spinner states
   const [loading, setLoading] = useState(false);
@@ -31,18 +35,17 @@ function RegisterFaceAuth(props) {
   const [show, setShow] = useState(false);
 
   const password = "engage@1234";
-  const balance = 10000;
   const email = props.email;
   const firstName = props.firstName;
   const lastName = props.lastName;
-  const mobileNumber = props.mobileNumber;
+  const VRA = props.VRA;
+  const seed = props.seed;
   const { signUp } = useUserAuth();
+  
 
-  const id = "MSB" + Math.floor(100000 + Math.random() * 900000);
-  const account_no = parseInt(Math.floor(10e10 + Math.random() * 900000000));
 
   const dateCreated = new Date().toISOString();
-  const dateUpdated = new Date().toISOString();
+ 
 
   //method for capture an image Destop
   const captureImage = React.useCallback(async () => {
@@ -97,16 +100,32 @@ function RegisterFaceAuth(props) {
 
               // if there is only one FACE detected in image 
               if (response.data.length === 1) {
+
+
+               if(seed===""){
+               const wallet = xrpl.Wallet.generate();
+               setWalletAddress(wallet.address);
+               setWalletSeed(wallet.seed);
+               setWalletBalance(0);
+               }else{
+                   
+                const wallet = xrpl.Wallet.fromSeed(seed);
+                setWalletAddress(wallet.address);
+                setWalletSeed(wallet.seed);
+                setWalletBalance();
+                }
+
+               client.disconnect();
+
                 const newUser = {
                   dateCreated,
-                  dateUpdated,
                   firstName,
                   lastName,
                   email,
-                  mobileNumber,
-                  id,
-                  account_no,
-                  balance,
+                  VRA,
+                  walletAddress,
+                  walletSeed,
+                  walletBalance,
                 };
 
                 await signUp(email, password);
