@@ -124,7 +124,7 @@ const Signup = () => {
           <div className="row justify-content-center align-items-centre h-100">
             <div className="col-md-auto d-flex justify-content-center align-items-center">
               <div className="bg-transparent border border-0 card">
-                <div className="card-body m-auto text-center d-flex flex-column float-left m-5">
+                <div className="card-body m-auto text-center d-flex flex-column float-left">
                   <div>
                     <h3 className="float-left fw-bold fs-3">Sign up</h3>
                   </div>
@@ -212,14 +212,15 @@ const Signup = () => {
                         </span>
                       </div>
 
-                      <Form.Group controlId="formVRA">
+                      <InputGroup className="mb-3">
                         <Form.Control
                           className="border-dark border-1 p-2 form-control-lg"
-                          type="text"
-                          value={VRA}
-                          onChange={(e) => setVRA(e.target.value)}
+                          type="number"
+                          value = {VRA}
+                          onChange= { (e) => setVRA(e.target.value)}
                         />
-                      </Form.Group>
+                        <InputGroup.Text id="basic-addon0">@xrp</InputGroup.Text>
+                      </InputGroup>
                     </div>
 
                     {/* <div className="">

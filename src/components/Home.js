@@ -367,7 +367,7 @@ const Home = () => {
 
         <div className="d-flex flex-md-row mb-3 flex-column justify-content-center">
             <div className="p-2 d-flex justify-content-center">
-              <div className="card text-white bg-dark m-3" style={cardStyle}>
+              <div className="card bg-dark m-3" style={cardStyle}>
                 <button className="card-body text-center" onClick={handleShow}>
                   <h5 className="card-title">
                     <strong>Deposit</strong>
@@ -378,7 +378,7 @@ const Home = () => {
 
             <Link className="text-decoration-none" to="/Payment">
               <div className="p-2 d-flex justify-content-center">
-                <div className="card text-white bg-dark m-3" style={cardStyle}>
+                <div className="card text-dark bg-dark m-3" style={cardStyle}>
                   <button className="card-body text-center">
                     <h5 className="card-title">
                       <strong>Send Money</strong>
@@ -404,7 +404,7 @@ const Home = () => {
 
             <Link className="text-decoration-none" to="/TransactionHistory">
               <div className="p-2 d-flex justify-content-center">
-                <div className="card text-white bg-dark m-3" style={cardStyle}>
+                <div className="card text-dark bg-dark m-3" style={cardStyle}>
                   <button className="card-body text-center">
                     <h5 className="card-title">
                       <strong>Transaction History</strong>
