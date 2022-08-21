@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Form, Alert, Modal, Button, Spinner } from "react-bootstrap";
+import { Form, Alert, Modal, Button, Spinner, InputGroup } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
 import UserDataService from "../services/user.services";
 import FaceRegister from "./FaceRegister";
@@ -141,7 +141,7 @@ const Signup = () => {
                     </Alert>
                   )}
 
-                  <Form onSubmit={handleSubmit} className="p-5 pt-2 m-auto">
+                  <Form onSubmit={handleSubmit} className=" pt-2 m-auto">
                     <div className="">
                       <div className="d-flex float-left fw-bold">
                         <label className="form-label pt-2 ">First Name</label>
@@ -222,7 +222,7 @@ const Signup = () => {
                       </Form.Group>
                     </div>
 
-                    <div className="">
+                    {/* <div className="">
                       <div className="d-flex float-left fw-bold">
                         <label className="form-label pt-4">
                           Enter Seed (If you want to link existing Ripple
@@ -237,7 +237,7 @@ const Signup = () => {
                           onChange={(e) => setSeed(e.target.value)}
                         />
                       </Form.Group>
-                    </div>
+                    </div> */}
 
                     <div className="d-flex flex-row justify-content-center mt-2">
                       <div>
