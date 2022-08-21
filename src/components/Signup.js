@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Form, Alert, Modal, Button, Spinner } from "react-bootstrap";
+import { Form, Alert, Modal, Button, Spinner, InputGroup } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
 import UserDataService from "../services/user.services";
 import FaceRegister from "./FaceRegister";
@@ -31,7 +31,7 @@ const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [mobileNumber, setMobileNumber] =useState("");
   const [message, setMessage] = useState({error : false, msg : ""});
-  const [seed, setSeed] =useState("");
+  // const [seed, setSeed] =useState("");
   const password = "engage@1234";
   const balance = 10000;
   const { signUp } = useUserAuth();
@@ -48,7 +48,7 @@ const dateUpdated = new Date().toISOString();
     setMessage("");
 
     //Form is empty or not
-    if(firstName === "" || lastName === "" || email === "" || mobileNumber === "" || seed === ""){
+    if(firstName === "" || lastName === "" || email === "" || mobileNumber === ""){
     
         setMessage({error : true, msg : "All fields are mandatory"});
         return;
@@ -101,7 +101,7 @@ const dateUpdated = new Date().toISOString();
       setMessage("");
   
       //Form is empty or not
-      if(firstName === "" || lastName === "" || email === "" || mobileNumber === "" || seed === ""){
+      if(firstName === "" || lastName === "" || email === "" || mobileNumber === ""){
       
           setMessage({error : true, msg : "All fields are mandatory"});
           return;
@@ -164,7 +164,7 @@ const dateUpdated = new Date().toISOString();
     )}
 
 
-                            <Form onSubmit={handleSubmit} className="p-5 pt-2 m-auto">
+                            <Form onSubmit={handleSubmit} className=" pt-2 m-auto">
                               <div className="" >
                                 <div className="d-flex float-left fw-bold">
                                   <label className="form-label pt-2 ">First Name</label>
@@ -234,20 +234,21 @@ const dateUpdated = new Date().toISOString();
                                   </span>
                                   </div>
 
-                                  <Form.Group controlId="formBasicMobileNumber">
-                                  <Form.Control
-                                    className="border-dark border-1 p-2 form-control-lg"
-                                    type="number"
-                                    value = {mobileNumber}
-                                    onChange= { 
-                                      (e) => setMobileNumber(e.target.value)
-                                  
-                                    }
-                                  />
-                                </Form.Group>
+                                  <InputGroup className="mb-3">
+                                    <Form.Control
+                                      className="border-dark border-1 p-2 form-control-lg"
+                                      type="number"
+                                      value = {mobileNumber}
+                                      onChange= { 
+                                        (e) => setMobileNumber(e.target.value)
+                                    
+                                      }
+                                    />
+                                  <InputGroup.Text id="basic-addon1">@xrp.com</InputGroup.Text>
+                                </InputGroup>
                               </div>
 
-                              <div className="">
+                              {/* <div className="">
                                 <div className="d-flex float-left fw-bold">
                                   <label className="form-label pt-4">Seed</label>
                                   </div>
@@ -259,7 +260,7 @@ const dateUpdated = new Date().toISOString();
                                     onChange={(e) => setSeed(e.target.value)}
                                   />
                                 </Form.Group>
-                              </div>
+                              </div> */}
 
                            
                             

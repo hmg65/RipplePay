@@ -71,6 +71,7 @@ const Payment = () => {
   //Spinner states
   const [loadingFirst, setLoadingFirst] = useState(false);
   const [loadingSecond, setLoadingSecond] = useState(false);
+  const [loadingVerify, setLoadingVerify] = useState(false);
 
   //Verify states
   const [verify, setVerify] = useState(false);
@@ -161,16 +162,19 @@ const Payment = () => {
 
   // check if user is not sending to himself only
   const handleVerify = async () => {
+    setLoadingVerify(true);
     const api_url = `https://rzr-server.vercel.app/api/validate/${receiverVPA}`;
     const response = await fetch(api_url);
     const json = await response.json();
     const name = json.customer_name;
 
     if(name!=null){
+      setLoadingVerify(false);
       setVerify(true);
       setReceiverName(name);
     }
     else{
+      setLoadingVerify(false);
       setError("Invalid. Please check your UPI Address again.");
     }
   };
@@ -302,14 +306,18 @@ const Payment = () => {
                           }}
                         />
 
-                        {verify ? (
-                          <>
-                            <div className="fw-bold"> {receiverName} </div>
-                            <button className="btn btn-success m-2 disabled">
-                            Verefied{" "}
-                            </button>
-                          </>
-                        ) : (
+                        { loadingVerify ? ( 
+                            <Spinner animation="border" />
+                          ) : 
+                            verify ? (
+                              <>
+                                <div className="fw-bold"> {receiverName} </div>
+                                <button className="btn btn-success m-2 disabled">
+                                Verefied{" "}
+                                </button>
+                              </>
+                            )
+                           : (
                           <button
                             className="btn btn-warning mt-2"
                             onClick={handleVerify}
