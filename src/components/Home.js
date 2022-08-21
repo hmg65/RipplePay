@@ -391,7 +391,7 @@ const Home = () => {
 
           <div className="d-flex flex-md-row mb-3 flex-column justify-content-center">
             {/* <Link className="text-decoration-none" to="/Profile"> */}
-              <div className="p-2 d-flex justify-content-center">
+              {/* <div className="p-2 d-flex justify-content-center">
                 <div className="card text-white bg-dark m-3" style={cardStyle}>
                   <button className="card-body text-center" onClick={handleShowQR}>
                     <h5 className="card-title">
@@ -399,7 +399,7 @@ const Home = () => {
                     </h5>
                   </button>
                 </div>
-              </div>
+              </div> */}
             {/* </Link> */}
 
             <Link className="text-decoration-none" to="/TransactionHistory">

@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js"; 
 import RippleLogo from "../images/Ripple_Logo.svg";
-import Ripple96 from "../images/ripple-96.svg";
+import Ripple_Login_Logo from "../images/Ripple_Login_Logo.svg";
 
 
 
@@ -108,9 +108,13 @@ const Login = () => {
               <div className="bg-transparent border border-0 mb-5">
                 <div className="card-body text-center d-flex flex-column float-left p-0">
 
-                  <div className="d-flex flex-row align-items-center justify-content-center">
+                  {/* <div className="d-flex flex-row align-items-center justify-content-center">
                     <img src={Ripple96} className=""/>
                     <h1 className="fw-bold m-0">Pay</h1>
+                  </div> */}
+
+                  <div className="d-flex flex-row align-items-center justify-content-center">
+                    <img src={Ripple_Login_Logo} className=""/>
                   </div>
                       
                   {error && <Alert variant="danger">{error}</Alert>}
