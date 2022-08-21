@@ -441,7 +441,7 @@ const Payment = () => {
 
         <Modal.Body className="m-auto">
           {" "}
-          {parseFloat(amount.replace(/[,₹]/g, "")) > 10000 ? (
+          {parseFloat(amount.replace(/[,₹]/g, "")) > 1000 ? (
             <FingerAuth
               clearField={clearField}
               amount={parseInt(amount.replace(/[,₹]/g, ""))}
@@ -471,7 +471,7 @@ const Payment = () => {
         </Modal.Body>
 
         <Modal.Footer className="row justify-content-center text-center fw-bold">
-          {parseFloat(amount.replace(/[,₹]/g, "")) <= 10000 ? (
+          {parseFloat(amount.replace(/[,₹]/g, "")) <= 1000 ? (
             <div>
               Thumbs Up to pay or Make Victory sign with your hands to cancel
               the transaction
