@@ -185,7 +185,7 @@ deleteUser(user).then(() => {
 
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={RippleLogo} className="rounded nav_logo me-1"/>
-            RipplePay</Link>
+            TRON Pay</Link>
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

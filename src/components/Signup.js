@@ -93,7 +93,7 @@ const Signup = () => {
           to="/signup"
         >
           <img src={RippleLogo} className="rounded nav_logo me-1" />
-          RipplePay
+          TRON Pay
         </Link>
 
         <button
@@ -194,7 +194,7 @@ const Signup = () => {
                             placement="right"
                             overlay={
                               <Tooltip id="button-tooltip-2">
-                                Virtual Ripple Address
+                                Virtual Tron Address
                               </Tooltip>
                             }
                           >

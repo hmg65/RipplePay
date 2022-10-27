@@ -50,7 +50,7 @@ const Receipt = () => {
       <div className="d-flex mt-5">
         <div className=" mx-auto">
           <img src={Logo} className="rounded mt-2 logo_image"/>
-          <span className="fs-1 align-middle">RipplePay</span>
+          <span className="fs-1 align-middle">TRON Pay</span>
         </div>
       </div>
 

@@ -222,7 +222,7 @@ const Home = () => {
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/home">
             <img src={RippleLogo} className="rounded nav_logo me-1" />
-            RipplePay
+            TRON
           </Link>
           <div className="text-light ms-0 current_balance_nav">
             Current Balance:

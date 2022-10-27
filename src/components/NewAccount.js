@@ -24,7 +24,7 @@ const proceedToLogin = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <Link className="navbar-brand d-flex align-items-center ms-1" to="/">
         <img src={NavLogo} className="rounded nav_logo me-1"/>
-        RipplePay
+        TRON Pay
       </Link>
 
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
