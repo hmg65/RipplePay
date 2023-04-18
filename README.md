@@ -2,7 +2,7 @@
 
 ## Submission for Ripple CBDC Innovate 🌟
 
-[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)](https://youtu.be/6WKk-26gVIg)
+[![Generic badge](https://img.shields.io/badge/view-demo-blue?style=for-the-badge&label=View%20Demo%20Video)]()
 
 ## Deployed Application Link
 
@@ -94,8 +94,7 @@ Now comes the most exciting stuff, this project will also consume **Tensorflow J
 ## Useful Links
 
 - [Deployed Website](https://msbank.vercel.app/)
-- [Demo Video](https://youtu.be/6WKk-26gVIg)
-- [Ideation Document](https://docs.google.com/document/d/1elNAjPtOOx5mjmiPdku7XgqDaM9YQW5jG4980_XLdhg/edit?usp=sharing)
+- [Ideation Document]()
 
 ## Need help?
 
