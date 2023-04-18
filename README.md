@@ -1,4 +1,4 @@
-# ![](https://github.com/hmg65/msbank/blob/master/public/favicon.ico?raw=true) Ripple Pay
+# ![]() Ripple Pay
 
 ## Submission for Ripple CBDC Innovate 🌟
 
